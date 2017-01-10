@@ -3,7 +3,7 @@ tasks queue for multiple workers
 
 ## howto
 
-```
+```javascript
 let worker1 = function(task) {
   return new Promise((resolve, reject) {
     //do the heavy work in webworker/forked process
