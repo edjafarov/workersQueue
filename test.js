@@ -6,7 +6,7 @@ tap.test('if single worker - executes in a queue', (tap) => {
   let wrk1 = sinon.stub();
   wrk1.withArgs({mock:'mock1'}).returns(Promise.resolve({passed1:true}));
   wrk1.withArgs({mock:'mock2'}).returns(Promise.resolve({passed2:true}));
-  queue = new WorkersQueue([wrk1]);
+  let queue = new WorkersQueue([wrk1]);
 
   queue.addTask({mock:'mock1'}).then(function(result) {
     tap.ok(wrk1.calledOnce, 'worker called once');
@@ -26,7 +26,7 @@ tap.test('two workers - distributes the queue', (tap) => {
   let wrk2 = sinon.stub();
   wrk2.withArgs({mock:'mock'}).returns(Promise.resolve({passed:true}));
   wrk2.withArgs({mock:'mock'}).returns(Promise.resolve({passed:true}));
-  queue = new WorkersQueue([wrk1, wrk2]);
+  let queue = new WorkersQueue([wrk1, wrk2]);
   queue.addTask({mock:'mock'});
   queue.addTask({mock:'mock'}).then(function() {
     tap.ok(wrk1.calledOnce, 'first worker called once');
@@ -47,7 +47,7 @@ tap.test('two workers - handle reject of a worker', (tap) => {
   let wrk2 = sinon.spy(function() {
     return Promise.reject({passed:true});
   });
-  queue = new WorkersQueue([wrk1, wrk2]);
+  let queue = new WorkersQueue([wrk1, wrk2]);
   queue.addTask({mock:'mock'}).catch(function() {});
   queue.addTask({mock:'mock'}).catch(function() {
     tap.ok(wrk1.calledOnce);
