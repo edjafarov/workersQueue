@@ -1,5 +1,5 @@
 # workersQueue
-tasks queue for multiple workers
+tasks queue for multiple workers, works with node@^4.x.x
 
 ## howto
 
