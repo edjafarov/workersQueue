@@ -16,10 +16,10 @@ let worker2 = function(task) {
 };
 let queue = new WorkersQueue([worker1, worker2]);
 
-queue.addTask({ task }).then(function(result) {
+queue.addTask(task).then(function(result) {
   //get result
 });
-queue.addTask({ task }).then(function(result) {
+queue.addTask(task).then(function(result) {
  //get result
 });
 ```
