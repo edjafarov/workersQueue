@@ -1,0 +1,21 @@
+{
+  "name": "workers-queue",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "url": "git@github.com:edjafarov/workersQueue.git",
+    "type": "git"
+  },
+  "author": "Eldar Djafarov <djkojb@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "debug": "^2.6.0"
+  },
+  "devDependencies": {
+    "sinon": "^1.17.7",
+    "tap": "^9.0.3"
+  }
+}
